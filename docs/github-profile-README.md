@@ -44,7 +44,7 @@ I like translating user needs into technical products and working in collaborati
 </a>
 
 **Problem:** job seekers track applications in scattered places and spend hours researching each company before interviews.
-**Solution:** a job tracker that writes a sourced company briefing for every application, checks your fit, tailors your CV and preps you for interviews.
+**Solution:** a job tracker that writes a sourced company briefing for every application, checks your fit, tailors your CV, preps you for interviews, and syncs with your Outlook inbox to suggest status updates you approve.
 **Process:** discovery → competitor analysis → PRD → MoSCoW/RICE → shipped live → roadmap and metrics.
 
 [Case study](https://github.com/HassanAlsadah/Dreamplish/tree/main/docs/product) · [Live demo](https://dreamplish.vercel.app) · [Decisions log](https://github.com/HassanAlsadah/Dreamplish/blob/main/docs/product/08-decisions-log.md)

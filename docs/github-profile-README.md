@@ -69,6 +69,16 @@ I like translating user needs into technical products and working in collaborati
 
 [Case study](https://github.com/HassanAlsadah/Dreamplish/tree/main/docs/product) · [Live demo](https://dreamplish.vercel.app) · [Decisions log](https://github.com/HassanAlsadah/Dreamplish/blob/main/docs/product/08-decisions-log.md)
 
+#### Case study: improving the Alfursan mile-redemption experience (Saudia)
+
+*Prepared for SOAR26, Demand & Product Management track.*
+
+- **Problem:** Alfursan members with many miles struggle to find reward flights that fit their plans, which erodes their confidence that miles turn into real travel.
+- **Discovery:** mapped the redemption journey, reviewed public customer feedback, and identified four stakeholders (members, Alfursan program, revenue management, inventory management). The core trade-off: more redemptions without hurting fare revenue.
+- **Insight:** in the SAUDIA app, cash fares follow demand but mile prices don't. The same miles were worth 0.105 SAR per mile on a low-demand day and 0.143 SAR on a high-demand day, a gap of up to 35%.
+- **Proposal:** dynamic reward pricing, where flight demand sets the miles required, to balance redemption demand with limited reward seats. Framed as a hypothesis to validate with real redemption data.
+- **Validation plan:** a controlled pilot on 2–3 high-volume routes (Economy and Business), measured by redemption growth, search-to-booking conversion and CSAT.
+
 #### Circless: real-time smart parking system (senior design project)
 
 A cloud-based smart parking system with real-time availability.
@@ -87,7 +97,7 @@ A cloud-based smart parking system with real-time availability.
   <img src="https://skillicons.dev/icons?i=py,java,go,react,html,css,js,git,github,aws,gcp,firebase,figma&theme=dark" alt="Python, Java, Go, React, HTML, CSS, JavaScript, Git, GitHub, AWS, Google Cloud, Firebase, Figma" />
 </p>
 
-Plus: SQL · RESTful APIs · Software architecture · Machine learning (KNN, SVM, Random Forest)
+Plus: SQL · RESTful APIs · Software architecture 
 
 **Soft skills**
 Problem-solving and analytical thinking · Stakeholder communication · Cross-functional collaboration · Adaptability and continuous learning

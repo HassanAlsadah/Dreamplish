@@ -16,6 +16,8 @@
   <a href="https://dreamplish.vercel.app"><img src="https://img.shields.io/badge/Dreamplish-Live-6a4cf0?style=for-the-badge" alt="Dreamplish live" /></a>
 </p>
 
+<p align="center"><b>Open to Product Manager and Product Owner roles · Saudi Arabia</b></p>
+
 ---
 
 ### About me
@@ -55,7 +57,7 @@ Each project follows the same format: **Problem → What I did → Outcome**.
 </p>
 
 - **Problem:** job seekers track applications in scattered places and spend hours researching each company before interviews.
-- **What I did:** owned the product end to end: discovery, competitor analysis, PRD, MoSCoW/RICE prioritization, roadmap and metrics, then built and shipped it.
+- **What I did:** owned the product end to end: discovery, competitor analysis, PRD, MoSCoW/RICE prioritization, roadmap and metrics, then built and shipped it using AI-assisted development, while making every product decision myself.
 - **Outcome:** live and free to use: one place that tracks every application and helps you win it, in Arabic and English.
 
 <details>
@@ -148,10 +150,6 @@ Problem-solving and analytical thinking · Stakeholder communication · Cross-fu
 | **Digital Product Management Training** | Olo Academy, 40 hours, 2025 |
 
 ---
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=HassanAlsadah&show_icons=true&hide_border=true&theme=transparent&title_color=8B6CF6&icon_color=d63c6f&text_color=9a9a9a&include_all_commits=true" height="165" alt="GitHub stats" />
-</p>
 
 <p align="center">
   <picture>

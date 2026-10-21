@@ -37,17 +37,29 @@ I like translating user needs into technical products and working in collaborati
 
 ### Projects
 
-#### [Dreamplish](https://github.com/HassanAlsadah/Dreamplish): from the dream to the offer
+Each project follows the same format: **Problem → What I did → Outcome**.
+
+<br/>
+
+#### 1. Dreamplish: from the dream to the offer
 
 <a href="https://github.com/HassanAlsadah/Dreamplish">
-  <img src="assets/dreamplish.png" alt="Dreamplish: From the dream to the offer" width="100%" />
+  <img src="assets/dreamplish.png" alt="Dreamplish landing page" width="100%" />
 </a>
 
-**Problem:** job seekers track applications in scattered places and spend hours researching each company before interviews.
-**Solution:** one place that tracks every application and helps you win it, in Arabic and English.
+<p>
+  <img src="https://img.shields.io/badge/Product-built%20%26%20shipped-6a4cf0?style=flat-square" alt="Product, built and shipped" />
+  <a href="https://dreamplish.vercel.app"><img src="https://img.shields.io/badge/Live%20demo-d63c6f?style=flat-square" alt="Live demo" /></a>
+  <a href="https://github.com/HassanAlsadah/Dreamplish/tree/main/docs/product"><img src="https://img.shields.io/badge/Case%20study-f2a93b?style=flat-square" alt="Case study" /></a>
+  <a href="https://github.com/HassanAlsadah/Dreamplish"><img src="https://img.shields.io/badge/Code-555555?style=flat-square" alt="Code" /></a>
+</p>
 
-<details open>
-<summary><b>Features</b></summary>
+- **Problem:** job seekers track applications in scattered places and spend hours researching each company before interviews.
+- **What I did:** owned the product end to end: discovery, competitor analysis, PRD, MoSCoW/RICE prioritization, roadmap and metrics, then built and shipped it.
+- **Outcome:** live and free to use: one place that tracks every application and helps you win it, in Arabic and English.
+
+<details>
+<summary><b>See all 14 features</b></summary>
 
 - **Kanban board:** drag jobs between stages, add and rename your own columns (names translate between Arabic and English), or switch to a list view.
 - **Status timeline:** every step of each application with dates, plus the next step to take.
@@ -65,27 +77,42 @@ I like translating user needs into technical products and working in collaborati
 - **Arabic and English:** full right-to-left layout, plus light and dark mode.
 
 </details>
-**Process:** discovery → competitor analysis → PRD → MoSCoW/RICE → shipped live → roadmap and metrics.
 
-[Case study](https://github.com/HassanAlsadah/Dreamplish/tree/main/docs/product) · [Live demo](https://dreamplish.vercel.app) · [Decisions log](https://github.com/HassanAlsadah/Dreamplish/blob/main/docs/product/08-decisions-log.md)
+<br/>
 
-#### Case study: improving the Alfursan mile-redemption experience (Saudia)
+#### 2. When miles meet demand: improving Saudia's Alfursan mile redemption
 
-*Prepared for SOAR26, Demand & Product Management track.*
+<a href="assets/saudia-case-study.pdf">
+  <img src="assets/saudia-cover.png" alt="When Miles Meet Demand: Improving the Mile Redemption Experience" width="100%" />
+</a>
+
+<p>
+  <img src="https://img.shields.io/badge/Product-case%20study-6a4cf0?style=flat-square" alt="Product case study" />
+  <a href="assets/saudia-case-study.pdf"><img src="https://img.shields.io/badge/Slides-PDF-d63c6f?style=flat-square" alt="Slides (PDF)" /></a>
+  <img src="https://img.shields.io/badge/SOAR26-Demand%20%26%20Product%20Management-f2a93b?style=flat-square" alt="SOAR26, Demand and Product Management" />
+</p>
 
 - **Problem:** Alfursan members with many miles struggle to find reward flights that fit their plans, which erodes their confidence that miles turn into real travel.
-- **Discovery:** mapped the redemption journey, reviewed public customer feedback, and identified four stakeholders (members, Alfursan program, revenue management, inventory management). The core trade-off: more redemptions without hurting fare revenue.
-- **Insight:** in the SAUDIA app, cash fares follow demand but mile prices don't. The same miles were worth 0.105 SAR per mile on a low-demand day and 0.143 SAR on a high-demand day, a gap of up to 35%.
-- **Proposal:** dynamic reward pricing, where flight demand sets the miles required, to balance redemption demand with limited reward seats. Framed as a hypothesis to validate with real redemption data.
-- **Validation plan:** a controlled pilot on 2–3 high-volume routes (Economy and Business), measured by redemption growth, search-to-booking conversion and CSAT.
+- **What I did:** mapped the redemption journey, reviewed public customer feedback and mapped four stakeholders around one trade-off: more redemptions without hurting fare revenue. Found that in the SAUDIA app cash fares follow demand but mile prices don't: the same miles were worth 0.105 SAR per mile on a low-demand day and 0.143 SAR on a high-demand day, up to 35% apart.
+- **Outcome:** proposed dynamic reward pricing, where flight demand sets the miles required, with a pilot on 2–3 high-volume routes measured by redemption growth, search-to-booking conversion and CSAT.
 
-#### Circless: real-time smart parking system (senior design project)
+<br/>
 
-A cloud-based smart parking system with real-time availability.
-- Provisioned a virtual machine and used Google Cloud Storage for data persistence.
-- Handled real-time parking status and user interactions with Firebase.
-- Integrated occupancy and violation detection outputs into the app in real time.
-- Integrated the Google Maps API to show parking locations and help users navigate.
+#### 3. Circless: real-time smart parking (senior design project)
+
+<img src="https://capsule-render.vercel.app/api?type=rect&height=200&color=0:6a4cf0,55:d63c6f,100:f2a93b&text=Circless&fontColor=ffffff&fontSize=56&fontAlignY=42&desc=Real-time%20smart%20parking&descSize=20&descAlignY=66" alt="Circless: real-time smart parking" width="100%" />
+
+<p>
+  <img src="https://img.shields.io/badge/Engineering-senior%20design%20project-6a4cf0?style=flat-square" alt="Engineering, senior design project" />
+  <img src="https://img.shields.io/badge/Google%20Cloud-d63c6f?style=flat-square" alt="Google Cloud" />
+  <img src="https://img.shields.io/badge/Firebase-f2a93b?style=flat-square" alt="Firebase" />
+  <img src="https://img.shields.io/badge/Google%20Maps%20API-555555?style=flat-square" alt="Google Maps API" />
+</p>
+
+- **Problem:** drivers need to know where parking is free right now, not after they arrive.
+- **What I did:** provisioned a virtual machine and used Google Cloud Storage for data persistence; handled real-time parking status and user interactions with Firebase; integrated occupancy and violation detection into the app; added the Google Maps API for parking locations and navigation.
+- **Outcome:** a cloud-based system showing real-time parking availability, kept in sync between the cloud backend and the app.
+
 
 ---
 

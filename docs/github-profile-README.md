@@ -100,7 +100,12 @@ Each project follows the same format: **Problem → What I did → Outcome**.
 
 #### 3. Circless: real-time smart parking (senior design project)
 
-<img src="https://capsule-render.vercel.app/api?type=rect&height=200&color=0:6a4cf0,55:d63c6f,100:f2a93b&text=Circless&fontColor=ffffff&fontSize=56&fontAlignY=42&desc=Real-time%20smart%20parking&descSize=20&descAlignY=66" alt="Circless: real-time smart parking" width="100%" />
+<table>
+  <tr>
+    <td width="50%" align="center"><a href="assets/circless-mobile.webp"><img src="assets/circless-mobile.webp" alt="Circless user mobile app: find available parking, predictions, navigation and floor map view" width="100%" /></a><br/><sub><b>User mobile app</b></sub></td>
+    <td width="50%" align="center"><a href="assets/circless-admin.webp"><img src="assets/circless-admin.webp" alt="Circless admin dashboard: overview, parking management, violation reports and time studies" width="100%" /></a><br/><sub><b>Admin dashboard</b></sub></td>
+  </tr>
+</table>
 
 <p>
   <img src="https://img.shields.io/badge/Engineering-senior%20design%20project-6a4cf0?style=flat-square" alt="Engineering, senior design project" />
@@ -111,7 +116,9 @@ Each project follows the same format: **Problem → What I did → Outcome**.
 
 - **Problem:** drivers need to know where parking is free right now, not after they arrive.
 - **What I did:** provisioned a virtual machine and used Google Cloud Storage for data persistence; handled real-time parking status and user interactions with Firebase; integrated occupancy and violation detection into the app; added the Google Maps API for parking locations and navigation.
-- **Outcome:** a cloud-based system showing real-time parking availability, kept in sync between the cloud backend and the app.
+- **Outcome:** a cloud-based system, kept in sync between the backend and the apps, with two parts:
+  - **User mobile app:** find available parking with walking and driving times, occupancy predictions from forecasts and historical trends, Google Maps navigation, and a live floor map of free (green) and occupied (red) spots.
+  - **Admin dashboard:** real-time usage overview, building and spot management, violation reports with photo evidence, and walking-time studies between parking and academic buildings.
 
 
 ---

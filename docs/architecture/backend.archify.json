@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Dreamplish backend architecture",
+    "output": "docs/architecture/backend-architecture.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": { "url": "https://github.com/HassanAlsadah/Dreamplish.git", "provider": "github", "link_mode": "web", "revision": "0d3814be1a63877a3ac216e7a7bf79048f912dc6" }
+  },
+  "layout": { "mode": "grid", "cols": 5, "cellW": 180, "cellH": 64, "gapX": 110, "gapY": 90 },
+  "components": [
+    { "id": "browser", "type": "external", "label": "Browser", "sublabel": "signed-in user", "row": 0, "col": 2 },
+    { "id": "auth", "type": "security", "label": "Supabase Auth", "sublabel": "sessions · Google OAuth", "row": 1, "col": 0, "sources": [{ "path": "lib/actions/auth.ts", "line": 35, "end_line": 45 }] },
+    { "id": "proxy", "type": "security", "label": "Proxy", "sublabel": "session · redirects · CSP", "row": 1, "col": 2, "sources": [{ "path": "proxy.ts", "line": 4, "end_line": 9 }, { "path": "lib/supabase/proxy.ts", "line": 14, "end_line": 63 }] },
+    { "id": "postgres", "type": "database", "label": "Postgres", "sublabel": "RLS on all 11 tables", "row": 2, "col": 0, "sources": [{ "path": "supabase/schema.sql", "line": 201, "end_line": 214 }] },
+    { "id": "handlers", "type": "backend", "label": "Request handlers", "sublabel": "auth · zod · rate limits", "row": 2, "col": 2, "sources": [{ "path": "lib/actions/jobs.ts", "line": 83, "end_line": 91 }, { "path": "app/api/jobs/[id]/analyze/route.ts", "line": 8, "end_line": 11 }, { "path": "lib/rate-limit.ts", "line": 31, "end_line": 42 }] },
+    { "id": "scheduler", "type": "external", "label": "pg_cron", "sublabel": "Supabase schedule", "row": 2, "col": 4 },
+    { "id": "career", "type": "backend", "label": "Career service", "sublabel": "match · tailor · prep", "row": 3, "col": 1, "sources": [{ "path": "lib/career/service.ts", "line": 37, "end_line": 45 }] },
+    { "id": "briefing", "type": "backend", "label": "Briefing service", "sublabel": "queue · claim_brief", "row": 3, "col": 2, "sources": [{ "path": "lib/briefing/service.ts", "line": 142, "end_line": 157 }, { "path": "lib/briefing/worker.ts", "line": 30, "end_line": 35 }] },
+    { "id": "email", "type": "backend", "label": "Email sync", "sublabel": "Outlook · Gmail · classify", "row": 3, "col": 3, "sources": [{ "path": "lib/email/sync.ts", "line": 121, "end_line": 121 }, { "path": "lib/email/sync.ts", "line": 270, "end_line": 270 }] },
+    { "id": "workers", "type": "backend", "label": "Worker routes", "sublabel": "bearer WORKER_SECRET", "row": 2, "col": 3, "sources": [{ "path": "app/api/worker/briefs/route.ts", "line": 18, "end_line": 22 }, { "path": "app/api/worker/email/route.ts", "line": 9, "end_line": 17 }] },
+    { "id": "storage", "type": "database", "label": "Storage", "sublabel": "private cvs bucket", "row": 3, "col": 0, "sources": [{ "path": "lib/career/service.ts", "line": 146, "end_line": 149 }] },
+    { "id": "ai", "type": "cloud", "label": "Gemini · Tavily", "sublabel": "AI + web search", "row": 4, "col": 2, "sources": [{ "path": "lib/ai/gemini.ts", "line": 34, "end_line": 53 }, { "path": "lib/briefing/worker.ts", "line": 15, "end_line": 24 }] },
+    { "id": "web", "type": "external", "label": "Company sites", "sublabel": "public IPs only", "row": 4, "col": 1, "sources": [{ "path": "lib/safe-fetch.ts", "line": 50, "end_line": 75 }] },
+    { "id": "mail", "type": "external", "label": "Graph · Gmail API", "sublabel": "read-only", "row": 4, "col": 3, "sources": [{ "path": "lib/email/outlook.ts", "line": 81, "end_line": 81 }] }
+  ],
+  "connections": [
+    { "id": "c1", "from": "browser", "to": "proxy", "label": "HTTPS", "variant": "emphasis" },
+    { "id": "c2", "from": "proxy", "to": "auth", "label": "refresh", "variant": "security" },
+    { "id": "c3", "from": "proxy", "to": "handlers", "variant": "emphasis" },
+    { "id": "c4", "from": "handlers", "to": "postgres", "label": "RLS queries" },
+    { "id": "c5", "from": "handlers", "to": "career" },
+    { "id": "c6", "from": "handlers", "to": "briefing" },
+    { "id": "c7", "from": "handlers", "to": "email" },
+    { "id": "c8", "from": "scheduler", "to": "workers", "label": "POST", "variant": "security" },
+    { "id": "c9", "from": "workers", "to": "email", "variant": "dashed" },
+    { "id": "c10", "from": "career", "to": "storage", "label": "Word CV" },
+    { "id": "c11", "from": "career", "to": "web" },
+    { "id": "c12", "from": "briefing", "to": "ai", "label": "research" },
+    { "id": "c13", "from": "email", "to": "mail", "label": "read mail" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "Security", "items": ["Every table has row-level security; the service-role client is used only by workers, rate limits and account deletion", "Mailbox refresh tokens are AES-256-GCM encrypted", "Pages get a per-request CSP nonce"] },
+    { "dot": "emerald", "title": "Not drawn", "items": ["Career and email sync also call Gemini; the briefing worker also runs from /api/worker/briefs", "Services write their results to Postgres"] }
+  ]
+}

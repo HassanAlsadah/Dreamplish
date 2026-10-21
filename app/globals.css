@@ -1,0 +1,446 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens — black chrome, colour where progress happens.
+ * The top bar and main buttons are black (near-white in dark mode) on neutral greys; the six job
+ * statuses carry the colour system, the indigo accent marks links / selection / focus, and the dawn
+ * gradient (violet → rose → amber) is used sparingly, one focal point per screen. Every text pair is
+ * WCAG AA (4.5:1) in both themes; status colours were checked for colour-blind separation.
+ */
+
+/* Light */
+:root {
+  --bg: #f7f7f6;
+  --surface: #ffffff;
+  --surface-2: #f2f2f0;
+  --border: #e6e6e3;
+  --border-strong: #8f8f8a;
+  --fg: #141414;
+  --muted: #5e5e5a;
+  /* Light top bar: white with dark text and a hairline border (dark mode keeps a black bar). */
+  --topbar: #ffffff;
+  --topbar-fg: #141414;
+  --topbar-pill: #f2f2f0;
+  --topbar-pill-active: #e4e4e1;
+  --primary: #141414;
+  --primary-fg: #ffffff;
+  /* Links, selected states and the focus ring. */
+  --accent: #4c3fd6;
+  --accent-fg: #ffffff;
+  --danger: #c8283f;
+  --danger-soft: #fdecef;
+  --ring: #4c3fd6;
+
+  /* Job statuses (text-safe on light surfaces: ≥ 4.5:1). */
+  --status-saved: #64748b;
+  --status-applied: #0369a1;
+  --status-assessment: #7c3aed;
+  --status-interview: #b45309;
+  --status-offer: #047857;
+  --status-rejected: #c2264b;
+
+  /* Board column swatches (users pick one per column). */
+  --stage-gray: var(--status-saved);
+  --stage-blue: var(--status-applied);
+  --stage-purple: var(--status-assessment);
+  --stage-amber: var(--status-interview);
+  --stage-green: var(--status-offer);
+  --stage-red: var(--status-rejected);
+  --stage-teal: #0f766e;
+  --stage-orange: #c2410c;
+  --stage-pink: #be185d;
+
+  /* Signature gradient: decoration and large bold text only. */
+  --dawn-1: #6a4cf0;
+  --dawn-2: #d63c6f;
+  --dawn-3: #f2a93b;
+
+  --shadow-color: 0 0% 10%;
+  color-scheme: light;
+}
+
+/* Dark */
+.dark {
+  --bg: #0b0b0b;
+  --surface: #151515;
+  --surface-2: #1d1d1d;
+  --border: #2a2a2a;
+  --border-strong: #6e6e6a;
+  --fg: #ededec;
+  --muted: #a3a3a0;
+  --topbar: #050505;
+  --topbar-fg: #f5f5f4;
+  --topbar-pill: #1c1c1c;
+  --topbar-pill-active: #333333;
+  /* Near-white main button in dark mode, apart from the lavender accent. */
+  --primary: #f3f3f2;
+  --primary-fg: #111111;
+  --accent: #a99dff;
+  --accent-fg: #141030;
+  --danger: #ff6b7d;
+  --danger-soft: #331722;
+  --ring: #a99dff;
+
+  --status-saved: #94a3b8;
+  --status-applied: #2196d6;
+  --status-assessment: #9f6bff;
+  --status-interview: #c4852a;
+  --status-offer: #22a571;
+  --status-rejected: #e94b6c;
+
+  --stage-teal: #2bb3a3;
+  --stage-orange: #e07a3a;
+  --stage-pink: #e05597;
+
+  --dawn-1: #7a5cff;
+  --dawn-2: #e0507f;
+  --dawn-3: #f2b24a;
+
+  --shadow-color: 0 0% 0%;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-topbar: var(--topbar);
+  --color-topbar-fg: var(--topbar-fg);
+  --color-topbar-pill: var(--topbar-pill);
+  --color-topbar-pill-active: var(--topbar-pill-active);
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-ring: var(--ring);
+
+  --color-status-saved: var(--status-saved);
+  --color-status-applied: var(--status-applied);
+  --color-status-interview: var(--status-interview);
+  --color-status-offer: var(--status-offer);
+  --color-status-rejected: var(--status-rejected);
+  --color-status-assessment: var(--status-assessment);
+
+  --color-dawn-1: var(--dawn-1);
+  --color-dawn-2: var(--dawn-2);
+  --color-dawn-3: var(--dawn-3);
+
+  /* Body: IBM Plex Sans Arabic (Arabic + Latin). Headings: Bricolage Grotesque (English) /
+     Alexandria (Arabic), picked by the page language below. Wordmark: Amiri (kashida). */
+  --font-sans: var(--font-plex-arabic), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-locale), ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: var(--font-amiri), ui-serif, Georgia, serif;
+
+  /* Radii: chips/inputs 10, buttons/cards 16, panels 24 (Tailwind: rounded-lg / 2xl / 3xl). */
+  --radius-lg: 0.625rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  /* Shadows: neutral at rest; components tint the lift with their status colour. */
+  --shadow-card: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 2px 8px hsl(var(--shadow-color) / 0.05);
+  --shadow-lift: 0 2px 4px hsl(var(--shadow-color) / 0.06), 0 12px 28px -6px hsl(var(--shadow-color) / 0.16);
+  --shadow-pop: 0 4px 10px hsl(var(--shadow-color) / 0.1), 0 24px 48px -12px hsl(var(--shadow-color) / 0.3);
+}
+
+:root {
+  --font-display-locale: var(--font-bricolage), var(--font-alexandria);
+}
+html:lang(ar) {
+  --font-display-locale: var(--font-alexandria), var(--font-bricolage);
+}
+
+/* Soft status washes for chips, column headers and timeline cards. */
+:root,
+.dark {
+  --status-saved-soft: color-mix(in oklab, var(--status-saved) 12%, var(--surface));
+  --status-applied-soft: color-mix(in oklab, var(--status-applied) 12%, var(--surface));
+  --status-assessment-soft: color-mix(in oklab, var(--status-assessment) 12%, var(--surface));
+  --status-interview-soft: color-mix(in oklab, var(--status-interview) 14%, var(--surface));
+  --status-offer-soft: color-mix(in oklab, var(--status-offer) 12%, var(--surface));
+  --status-rejected-soft: color-mix(in oklab, var(--status-rejected) 12%, var(--surface));
+  --gradient-dawn: linear-gradient(110deg, var(--dawn-1), var(--dawn-2) 55%, var(--dawn-3));
+  /* Buttons carry white text, so their gradient stops before amber: violet → deep rose stays
+     ≥ 5.4:1 for white text everywhere, in both themes. */
+  --gradient-dawn-button: linear-gradient(110deg, #5b3ee6, #c22f5e);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  /* No double-tap zoom delay; taps show our own pressed states instead of the grey flash. */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Arabic needs more room between lines than Latin. */
+html:lang(ar) body {
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+html:lang(ar) :is(h1, h2, h3) {
+  line-height: 1.35;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* On black surfaces (toasts; the top bar in dark mode) the indigo ring would be too faint: use light
+   lavender (12:1). */
+.on-dark :focus-visible,
+.on-dark:focus-visible,
+.dark .topbar :focus-visible {
+  outline-color: #cfc8ff;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 28%, transparent);
+}
+
+/*
+ * Motion (CSS side). Same easings and timings as lib/motion.ts: enter ease-out-quint, exits about
+ * 75% of the enter time, only transform / opacity animate. Reduced motion: no movement.
+ */
+:root {
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
+  --ease-spring-out: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --dur-press: 100ms;
+  --dur-hover: 180ms;
+  --dur-enter: 220ms;
+  --dur-exit: 160ms;
+}
+
+/* Cards that lead somewhere: lift 2px with a soft shadow in their own colour (--tint). */
+.card-lift {
+  transition:
+    transform var(--dur-hover) var(--ease-out-quint),
+    box-shadow var(--dur-hover) var(--ease-out-quint),
+    border-color var(--dur-hover) var(--ease-out-quint);
+}
+@media (hover: hover) {
+  .card-lift:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--tint, var(--accent)) 35%, var(--border));
+    box-shadow:
+      var(--shadow-lift),
+      0 10px 24px -14px color-mix(in oklab, var(--tint, var(--accent)) 55%, transparent);
+  }
+}
+
+/* Tactile press for buttons and pressable chips. */
+.press {
+  transition-property: transform, background-color, border-color, color, box-shadow, opacity;
+  transition-duration: var(--dur-press), var(--dur-hover), var(--dur-hover), var(--dur-hover), var(--dur-hover), var(--dur-hover);
+  transition-timing-function: var(--ease-out-quint);
+}
+.press:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Native dialogs (all of them): blurred backdrop, a short scale-in, scroll kept inside. */
+dialog {
+  overscroll-behavior: contain;
+}
+dialog[open] {
+  animation: dialog-in var(--dur-enter) var(--ease-out-quint);
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.45);
+  backdrop-filter: blur(4px);
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+/* Skeleton shimmer: a light band slides across (transform only); still under reduced motion. */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-radius: 0.5rem;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--surface) 70%, transparent), transparent);
+  animation: shimmer 1.4s var(--ease-out-quint) infinite;
+}
+[dir="rtl"] .skeleton::after {
+  animation-direction: reverse;
+}
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Toasts rise in from the bottom. */
+.toast-in {
+  animation: toast-in var(--dur-enter) var(--ease-out-quint);
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+/* Page entrance: a fade with a small rise, every time a route mounts (pure CSS, so content is in the
+   HTML and visible even before scripts load). */
+.page-enter {
+  animation: rise-in var(--dur-enter) var(--ease-out-quint) both;
+}
+
+/* Staggered entrances: set --i (0, 1, 2…) on each item; after the 8th, items arrive together. */
+.rise-in {
+  animation: rise-in 280ms var(--ease-out-quint) both;
+  animation-delay: calc(min(var(--i, 0), 8) * 40ms);
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+/* Same, for a container's direct children (no index needed). */
+.stagger-children > * {
+  animation: rise-in 280ms var(--ease-out-quint) both;
+}
+.stagger-children > :nth-child(2) { animation-delay: 40ms; }
+.stagger-children > :nth-child(3) { animation-delay: 80ms; }
+.stagger-children > :nth-child(4) { animation-delay: 120ms; }
+.stagger-children > :nth-child(5) { animation-delay: 160ms; }
+.stagger-children > :nth-child(6) { animation-delay: 200ms; }
+.stagger-children > :nth-child(7) { animation-delay: 240ms; }
+.stagger-children > :nth-child(n + 8) { animation-delay: 280ms; }
+
+/* Landing reveal, once on load (no endless loop): the glow rises in, the journey line draws from the
+   start side, then each step pops in. */
+.landing-glow {
+  animation: glow-in 1.2s var(--ease-out-quint) both;
+}
+@keyframes glow-in {
+  from {
+    opacity: 0;
+    transform: translateY(-24px) scale(0.94);
+  }
+}
+.journey-line {
+  background: linear-gradient(to right, var(--dawn-1), var(--dawn-2), var(--dawn-3));
+  transform-origin: left center;
+  animation: draw-line 700ms var(--ease-out-quint) 250ms both;
+}
+[dir="rtl"] .journey-line {
+  background: linear-gradient(to left, var(--dawn-1), var(--dawn-2), var(--dawn-3));
+  transform-origin: right center;
+}
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+}
+.journey-step {
+  animation: pop-in 420ms var(--ease-spring-out) both;
+  animation-delay: calc(350ms + var(--i, 0) * 120ms);
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .rise-in,
+  .stagger-children > *,
+  .journey-step {
+    animation: fade-in 150ms linear both;
+    animation-delay: 0ms;
+  }
+  .landing-glow,
+  .journey-line {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift:hover,
+  .press:active:not(:disabled) {
+    transform: none;
+  }
+  .skeleton::after {
+    animation: none;
+    display: none;
+  }
+  dialog[open],
+  .toast-in {
+    animation: fade-in 150ms linear;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Landing only: the dawn glow behind the headline (static here; it drifts in once in the motion layer). */
+.landing-glow {
+  background:
+    radial-gradient(40% 50% at 30% 40%, color-mix(in oklab, var(--dawn-1) 28%, transparent), transparent 70%),
+    radial-gradient(35% 45% at 70% 35%, color-mix(in oklab, var(--dawn-2) 22%, transparent), transparent 70%),
+    radial-gradient(30% 40% at 55% 70%, color-mix(in oklab, var(--dawn-3) 20%, transparent), transparent 70%);
+  filter: blur(20px);
+}
+
+/* Native select arrow, flipped for RTL */
+.select-native {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238c8c88' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-inline-end: 2.5rem;
+}
+[dir="rtl"] .select-native {
+  background-position: left 0.85rem center;
+}
+
+/* Printed CV: A4 with no page margin, so the browser has no room for its own header/footer
+   (date, URL, page numbers). The CV page draws its own margins. Must be top-level: the CSS build
+   drops @page when it's nested inside @media. */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+}

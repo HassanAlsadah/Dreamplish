@@ -44,7 +44,27 @@ I like translating user needs into technical products and working in collaborati
 </a>
 
 **Problem:** job seekers track applications in scattered places and spend hours researching each company before interviews.
-**Solution:** a job tracker that writes a sourced company briefing for every application, checks your fit, tailors your CV, preps you for interviews, and syncs with your Outlook inbox to suggest status updates you approve.
+**Solution:** one place that tracks every application and helps you win it, in Arabic and English.
+
+<details open>
+<summary><b>Features</b></summary>
+
+- **Kanban board:** drag jobs between stages, add and rename your own columns (names translate between Arabic and English), or switch to a list view.
+- **Status timeline:** every step of each application with dates, plus the next step to take.
+- **Insights panel:** reply rate, follow-ups due and where your applications stand.
+- **Check my fit:** paste a job or its link and get a requirement-by-requirement match score *before* you apply; unsent checks stay as drafts.
+- **Job description from a link:** fetches the description from the company's careers page.
+- **Match & CV score:** how well your CV fits each job, with the skills you're missing.
+- **Tailored CV:** rewritten for the job using only facts from your CV, even in your own Word design, ready to print as PDF.
+- **Company briefing:** news, products, values, in-demand skills, Saudi salary ranges and watch-outs, with a source for every fact.
+- **Interview prep:** likely questions and talking points from the job, your CV and the briefing.
+- **Outlook sync:** reads your inbox (read-only) and suggests status updates you approve.
+- **Where you applied:** track the channel (company site, LinkedIn, referral and more) for each job.
+- **Usage limits:** your remaining daily AI and sync usage, shown on your profile.
+- **Privacy built in:** Google sign-in, your data visible only to you, undo on delete, and one-click account deletion.
+- **Arabic and English:** full right-to-left layout, plus light and dark mode.
+
+</details>
 **Process:** discovery → competitor analysis → PRD → MoSCoW/RICE → shipped live → roadmap and metrics.
 
 [Case study](https://github.com/HassanAlsadah/Dreamplish/tree/main/docs/product) · [Live demo](https://dreamplish.vercel.app) · [Decisions log](https://github.com/HassanAlsadah/Dreamplish/blob/main/docs/product/08-decisions-log.md)

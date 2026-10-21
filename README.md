@@ -31,12 +31,20 @@ Early- and mid-career job seekers applying to many roles at once, starting with 
 
 | Pain point | Feature |
 |---|---|
-| "I don't know where each application stands" | **Kanban board**, custom columns, a status **timeline** per job, and an **insights** panel (reply rate, follow-ups) |
+| "I don't know where each application stands" | **Kanban board** with drag and drop and a list view; add and rename your own columns (names translate between Arabic and English) |
+| "I forget what happened and what's next" | **Status timeline** per job with dates for every step, plus the **next step** to take |
+| "I can't tell what's working" | **Insights panel**: reply rate, follow-ups due and where your applications stand |
+| "Am I even a fit for this job?" | **Check my fit**: paste a job or its link and get a requirement-by-requirement match score *before* you apply; unsent checks stay as **drafts** |
+| "Copying job descriptions is tedious" | **Description from a link**: fetched from the company's careers page |
+| "Which skills am I missing?" | **Match & CV score** for each job, with the skills you're missing |
+| "Tailoring my CV is slow" | **Tailored CV** that only uses facts from your CV, even in your own Word design, ready to print as PDF |
 | "Researching each company takes hours" | **Company briefing**: news, products, values, in-demand skills, Saudi salary ranges and watch-outs. **Every fact cites its source.** |
-| "Am I even a fit for this job?" | **Check my fit**: a requirement-by-requirement match score *before* you apply |
-| "Tailoring my CV is slow" | **Tailored CV** that only uses facts from your CV, even in your own Word design |
 | "I walk into interviews unprepared" | **Interview prep**: likely questions and talking points from the job, your CV and the briefing |
-| "Updates are buried in my inbox" | **Outlook integration** (read-only) that suggests updates you approve |
+| "Updates are buried in my inbox" | **Outlook sync** (read-only) that suggests status updates you approve |
+| "Which channel gets me replies?" | **Where you applied**: LinkedIn, company site, referral, recruiter and more, for each job |
+| "How much can I still use today?" | **Usage limits**: your remaining daily AI and sync usage on your profile |
+| "Is my data safe?" | **Privacy built in**: Google sign-in, data visible only to you, undo on delete and one-click account deletion |
+| "Most tools aren't made for Arabic" | **Arabic and English** with full right-to-left layout, plus light and dark mode |
 
 All pain points and the feature for each: [pain points → features](docs/product/03-pain-points.md).
 

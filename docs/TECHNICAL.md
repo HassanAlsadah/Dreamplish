@@ -6,19 +6,7 @@ Setup, architecture and how each feature works. For the product overview, see th
 
 Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Supabase (Postgres + Auth + RLS) · Arabic & English (RTL/LTR) · light & dark mode.
 
-## Status
 
-| Phase | Scope | State |
-|---|---|---|
-| 1 | Setup, auth, database, tracker (add/edit/delete, Kanban + list, search & filter) | ✅ Done |
-| 2 | Company briefing pipeline + briefing page | ✅ Done |
-| 3 | Job analysis, CV match score, tailored CV, interview prep, CV upload | ✅ Done |
-| 4 | Outlook email integration (job emails → new jobs / status updates) | ✅ Done |
-| 5 | Customisable board (own columns, rename, recolour, reorder, hide, delete jobs from the dashboard) | ✅ Done |
-| 6 | Job status history timeline (animated commit-graph on the job page, editable change dates) | ✅ Done |
-| 7 | *Check my fit*: Match & CV and a tailored CV from the dashboard, before applying | ✅ Done |
-| 8 | Security hardening (headers and CSP, safe URL fetching, rate limits, account deletion) and tests for every server action | ✅ Done |
-| 9 | Polish, deploy guide | ⏳ Next |
 
 ## Architecture
 
